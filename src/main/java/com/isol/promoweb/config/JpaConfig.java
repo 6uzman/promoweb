@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -35,7 +36,8 @@ public class JpaConfig {
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-            dataSource.setDriverClassName(environment.getProperty("mysql.connect.driver"));
+
+        dataSource.setDriverClassName(environment.getProperty("mysql.connect.driver"));
             dataSource.setUrl(environment.getProperty("mysql.connect.url"));
             dataSource.setUsername(environment.getProperty("mysql.connect.user"));
             dataSource.setPassword(environment.getProperty("mysql.connect.password"));

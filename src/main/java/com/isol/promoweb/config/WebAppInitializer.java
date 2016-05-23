@@ -20,7 +20,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext  appContext = new AnnotationConfigWebApplicationContext ();
         //add all configuration class
-        appContext.register(JpaConfig.class,WebConfig.class);
+        appContext.register(ApplicationContextConfig.class,JpaConfig.class);
         container.addListener (new ContextLoaderListener(appContext));
 
         ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcherServlet", new DispatcherServlet(appContext));
